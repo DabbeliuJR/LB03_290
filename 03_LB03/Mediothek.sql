@@ -4,6 +4,7 @@ create database if not exists Mediothek;
 select * from mysql.user;
 
 GRANT all privileges ON Mediothek.* TO 'admin_mediothek'@'localhost';
+ALTER USER 'admin_mediothek'@'localhost'IDENTIFIED WITH mysql_native_password BY 'Jefherx7emyk';
 show grants for 'admin_mediothek'@'localhost';
 
 

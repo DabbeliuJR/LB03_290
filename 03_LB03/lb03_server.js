@@ -74,6 +74,30 @@ app.get('/user/:id', (req, res) => {
     })
 });
 
+app.get('/Medien', (req, res) => {
+    connection.query('SELECT * FROM Medien', [req.params.id], (err, rows, fields) => {
+        if (!err) {
+            console.log(rows);
+            res.send(rows);
+        } else {
+            console.log(err);
+        }
+
+    })
+});
+
+app.get('/Medien/:id', (req, res) => {
+    connection.query('Select * FROM Medien WHERE MediumID = ? ', [req.params.id], (err, rows, fields) => {
+        if (!err) {
+            console.log(rows);
+            res.send(rows);
+        } else {
+            console.log(err);
+        }
+
+    })
+});
+
 app.delete('/user/:id', (req, res) => {
     connection.query(' DELETE FROM user WHERE id = ? ', [req.params.id], (err, rows, fields) => {
         if (!err) {
