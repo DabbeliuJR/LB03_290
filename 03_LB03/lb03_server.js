@@ -50,30 +50,6 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
-app.get('/user', (req, res) => {
-    connection.query('SELECT * FROM user', [req.params.id], (err, rows, fields) => {
-        if (!err) {
-            console.log(rows);
-            res.send(rows);
-        } else {
-            console.log(err);
-        }
-
-    })
-});
-
-app.get('/user/:id', (req, res) => {
-    connection.query('SELECT * FROM user WHERE id = ?', [req.params.id], (err, rows, fields) => {
-        if (!err) {
-            console.log(rows);
-            res.send(rows);
-        } else {
-            console.log(err);
-        }
-
-    })
-});
-
 app.get('/Medien', (req, res) => {
     connection.query('SELECT * FROM Medien', [req.params.id], (err, rows, fields) => {
         if (!err) {
@@ -98,8 +74,8 @@ app.get('/Medien/:id', (req, res) => {
     })
 });
 
-app.delete('/user/:id', (req, res) => {
-    connection.query(' DELETE FROM user WHERE id = ? ', [req.params.id], (err, rows, fields) => {
+app.delete('/Medien/:id', (req, res) => {
+    connection.query(' DELETE FROM Medien WHERE MediumID = ? ', [req.params.id], (err, rows, fields) => {
         if (!err) {
             res.send('Delete operation was successful')
             // res.send(rows)
